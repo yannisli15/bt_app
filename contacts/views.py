@@ -26,12 +26,12 @@ def contact(request):
                           message=message, user_id=user_id)
         contact.save()
 
-        # send_mail(
-        #     'Property Listing Inquiry',
-        #     'There has been an inquiry for ' + listing,
-        #     '#sender's email',
-        #     [realtor_email],
-        #     fail_silently=False
-        # )
+        send_mail(
+            'Property Listing Inquiry',
+            'There has been an inquiry for ' + listing,
+            'leechengyuan.ly@gmail.com',
+            [realtor_email, 'leechengyuanjapan.ly@gmail.com'],
+            fail_silently=False
+        )
         messages.success(request, "Your request has been submitted, a realtor will get back to you soon")
     return redirect('/listings/'+listing_id)
